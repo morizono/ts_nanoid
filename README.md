@@ -1,4 +1,4 @@
-# ts_nanoid
+# TSnanoid
 Generates nanoid with a timestamp prefix
 
 I liked nanoid, ksuid and ulids
