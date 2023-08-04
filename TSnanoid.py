@@ -1,6 +1,8 @@
 #tested on Python 3.9.6
+#built using ChatGPT3.5
 #this generates a timestamped 12 digit nanoid using CrockfordBase32 alphabet
-#only uppercase used and the letters O, I, L, or U are omitted to reduce ambiguity
+#only numbers and uppercase letters are used
+#and the letters O, I, L, or U are omitted to reduce ambiguity
 #need to install nanoid first via pip
 
 import nanoid
@@ -12,8 +14,10 @@ def generate_nanoid_with_timestamp(size=12):
 
     # Get the current timestamp in seconds and convert to hexadecimal
     # make it uppercase
-    # start timestamp_hex so leading zeroes are not showing
+    # Strip leading zeroes.
+    # the side effect is how far into the future the code can be used without modifications is reduced.
     timestamp_hex = hex(int(time.time()))[2:].upper()
+    # will probably need to prepend a "0X" to convert back to an ISO 8601 timestamp
 
     # This will generate a 12 digit nanoid
     nanoid_without_timestamp = nanoid.generate('012345689ABCDEFGHJKMNPQRSTVWXYZ',12)
